@@ -1,14 +1,17 @@
 ---
 title: "MyLouiseProject API应用"
 date: 2021-08-13T15:23:00+08:00
+subtitle: ""
 draft: false
+comments: true
+categories: 开发心得
 ---
-
-# MyLouiseProject API应用
 
 ## 简介
 
 基于Java jdk11，SpringBoot，MySQL实现的轻量API应用，主要是配合<a url="https://github.com/Mrs4s/go-cqhttp">go-cqhttp</a>的接口标准实现QQ群聊机器人
+
+<!--more-->
 
 ## 快速部署
 
