@@ -1,10 +1,11 @@
 ---
-title: "学习心得"
+title: "云服务器一些碎碎念"
 date: 2021-08-13T16:05:42+08:00
 author: ""
 type: ""
 subtitle: ""
 draft: true
+categories: "学习资料"
 ---
 
 一点学习心得ssssss
