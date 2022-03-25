@@ -5,7 +5,7 @@ description: "这是主题图片哦"
 draft: false
 isCJKLanguage: true
 #文章排序权重
-weight: 0
+weight: 999
 image: mmexport1532947875714.jpg
 ---
 

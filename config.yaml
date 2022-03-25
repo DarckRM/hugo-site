@@ -1,4 +1,4 @@
-baseurl: http://www.rmdarck18.xyz:1313
+baseurl: http://www.rmdarck.icu
 languageCode: zh-cn
 theme: hugo-theme-stack
 paginate: 5
@@ -27,7 +27,7 @@ params:
 
     footer:
         since: 2020
-        customText:
+        customText: 渝ICP备2022001513号
 
     dateFormat:
         published: Jan 02, 2006
