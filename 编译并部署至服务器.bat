@@ -13,5 +13,6 @@ pause
 cd public
 git add .
 git commit -m "%date% %time% 更新内容"
+git pull
 git push
 pause
