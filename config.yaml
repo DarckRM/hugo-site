@@ -27,7 +27,7 @@ params:
 
     footer:
         since: 2020
-        customText: 渝ICP备2022001513号
+        customText: 渝ICP备2022001513号\n热忱之心不能泯灭，体恤弱者，互相帮助，四海之内皆是朋友。不要丢失这份感情，纵使这份感情被背叛过千百回，这就是我最后的愿望。
 
     dateFormat:
         published: Jan 02, 2006

@@ -1,7 +1,7 @@
 ---
 title: "欢迎访问本博客！"
 date: 2021-08-14T15:20:24+08:00
-description: "这是主题图片哦"
+description: "热忱之心不能泯灭，体恤弱者，互相帮助，四海之内皆是朋友。不要丢失这份感情，纵使这份感情被背叛过千百回，这就是我最后的愿望。"
 draft: false
 isCJKLanguage: true
 #文章排序权重
