@@ -1,6 +1,6 @@
 ---
 title: "关于图站Gelbooru开发的心得"
-date: 2021-12-20T16:21:34+08:00
+date: 2022-03-20T16:21:34+08:00
 description: "最近想给MyLouise项目添加一些新的图片来源，此前一直使用的是Lolicon API，但是那个API基本只提供Pixiv的图，而且图片也是经过了代理过后的，Gelbooru国内目前可以直接访问，图库数量也比较庞大，因此考虑将其纳入开发范围"
 draft: true
 categories: 学习资料
