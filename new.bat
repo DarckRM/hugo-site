@@ -1,0 +1,1 @@
+./hugo.exe new post
