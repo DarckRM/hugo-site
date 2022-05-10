@@ -1,7 +1,7 @@
 ---
-title: "EMR电子病历系统的学习"
+title: 'EMR电子病历系统的学习'
 date: 2022-05-05T11:37:31+08:00
-description: "电子病历系统，是医学专用软件。医院通过电子病历以电子化方式记录患者就诊的信息，包括：首页、病程记录、检查检验结果、医嘱、手术记录、护理记录等等，其中既有结构化信息，也有非结构化的自由文本，还有图形图象信息。涉及病人信息的采集、存储、传输、质量控制、统计和利用。"
+description: '电子病历系统，是医学专用软件。医院通过电子病历以电子化方式记录患者就诊的信息，包括：首页、病程记录、检查检验结果、医嘱、手术记录、护理记录等等，其中既有结构化信息，也有非结构化的自由文本，还有图形图象信息。涉及病人信息的采集、存储、传输、质量控制、统计和利用。'
 draft: false
 isCJKLanguage: true
 categories: 学习资料
@@ -93,3 +93,76 @@ categories: 学习资料
 - 病历规范化
 - 病历数据统计
 - 病历质量控制
+
+### 流程分析
+
+#### 启动流程
+
+- 初始化系统配置信息，如配置CORS，设置Token验证，注册服务到容器，设置一些系统变量等等
+
+- 扫描添加机器码`WebEmrService/wwwroot/License/lic.text`
+
+  如果不存在则在`wwwroot/Views/emr/write/data/lic.text`目录下创建一个新的`lic.text`文件
+
+- `lic.text`中是一个被加密的JSON对象，结构如下
+
+  ```json
+  {
+      'machineCode': String,
+      'currentTime': String
+  }
+  ```
+
+  其中`machineCode`是`ZLBase.SharedLibrary`提供的`GenerateMachineCode`方法提供的，对应了运行应用的机器的机器码
+
+- 如果存在`lic.text`文件，那么比对本机机器码和`lic.text`文件中的授权码，相同则继续流程。否则提示授权信息错误
+
+#### 创建模板病历
+
+- 浏览器中输入如下地址`localhost:8120/MrManagement/MRTemplateManage`，这里是病历模板管理页面，可以添加新的病历模板
+  在新增页面选择一个基础模板和病历类型，可以在右边看到即时渲染的文档模板样式，然后可以编辑病历段来适应需求，在之后的请求中，文档会作为参数传递到后端，以下是文档模板的数据结构
+
+  ```json
+  {
+      'TEMPLATE_ID': String,
+      'TEMPLATE_TYPE_ID': Number,
+      'TEMPLATE_TYPE': String,
+      'TYPE_ID': String,
+      'TYPE_Name': String,
+      'TEMPLATE_CODE': String,
+      'TEMPLATE_NAME': String,
+      'APPLY_TYPE': String,
+      'CREATOR': String,
+      'EDITOR': String,
+      'NOTE': String,
+      'BASIC_TEMPLATE_ID': String,
+      'PRINT_CONTROL':  String,
+      'TEMPLATE_VERSION': String, 
+      'IS_SEND_CDA': Boolean,
+      'IS_SEND_PDF': Boolean
+  }
+  ```
+
+  需要注意的是，病历模板仅指出了结构，不带有实际数据，因此可以用一个JSON对象将其表述，实际的病历在模板的基础之上添加了很多数据，是以HTML文档的结构展示的。
+
+- 点击保存按钮，查看JS代码，`savepara`转化成JSON字符串后作为参数传到`/MrTemplate/SaveTemplateRelatedInfo`接口
+
+  ```javascript
+  var ret = zlPost("/MrTemplate/SaveTemplateRelatedInfo", JSON.stringify(savepara), "");
+  ```
+
+  后端接口部分，`[HttpPost]`类似Java中的`@PostMapping`注解，指出方法接受的请求类型，方法名和控制器名直接构成了接口地址，参数将转化成`MrTemplate`类的对象，最后就是按照三层架构的模式，将其写入数据库。
+
+  ```c#
+  [HttpPost]
+  public IActionResult SaveTemplateRelatedInfo([FromBody] MrTemplate templateInfo)
+  {
+      MrTemplateBLL mrTemplateBLL = new MrTemplateBLL();
+      // BLL类似Java中的Service层
+      string result = mrTemplateBLL.SaveTemplateRelatedInfoBLL(templateInfo);
+      return Ok(result);
+  }
+  ```
+  
+  
+
