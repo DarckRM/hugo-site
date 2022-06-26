@@ -5,6 +5,7 @@ description: '电子病历系统，是医学专用软件。医院通过电子病
 draft: false
 isCJKLanguage: true
 categories: 学习资料
+image: index.assets/post.png
 ---
 
 ## 病历

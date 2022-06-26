@@ -6,6 +6,7 @@ draft: false
 isCJKLanguage: true
 #文章排序权重
 categories: 学习资料
+image: post.png
 ---
 
 ## 前言
