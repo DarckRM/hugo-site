@@ -1,1 +1,1 @@
-./hugo.exe new post/study/C#中GDI转化HTML输出为PDF/index.md
+./hugo.exe new post/study/一次面试的过程/index.md
