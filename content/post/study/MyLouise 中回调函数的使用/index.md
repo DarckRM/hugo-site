@@ -6,6 +6,7 @@ draft: false
 isCJKLanguage: true
 #文章排序权重
 weight: 0
+image: bg.jpg
 ---
 
 # 介绍
