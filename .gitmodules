@@ -1,6 +1,6 @@
 [submodule "public"]
 	path = public
-	url = https://github.com/DarckRM/DarckRM.github.io.git
+	url = https://akarin_lh:RMTouHou.18@gitea.rmdarck.icu:/Akarin_lh/HugoBlog.git
 [submodule "themes/github-style"]
 	path = themes/github-style
 	url = git@github.com:MeiK2333/github-style.git
