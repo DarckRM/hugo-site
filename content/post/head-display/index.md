@@ -9,3 +9,4 @@ weight: 999
 image: 5ea5011d128cc5f86f975b32e79ecfa1.jpg
 ---
 
+测试自动部署
