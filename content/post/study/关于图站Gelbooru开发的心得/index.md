@@ -83,3 +83,15 @@ Gelbooru的Post页面包含了非常多的信息，包括缩略图的URL以及�
 ![示例图片的HTML结构](index.assets/image-20220413030712907.png)
 
 如上两张图所示，从首页进入到图片相关的HTML区域非常简单，基本上是一些固定结构，如Java可以利用Jsoup非常容易的获取到`thumbnail_container`标签，接下来就可以直接利用`img`标签内的`src`属性来获取缩略图和原始图片了
+
+## 后续
+
+这是后来才发现的，Gelbooru 其实有提供 API ，不过要想获得 Json 格式的数据需要修改一下参数，并且需要自己注册 Gelbooru 的账号，然后拿到自己的 API KEY 才行，比解析 xml 是要好的多啦
+
+```
+https://gelbooru.com/index.php?page=dapi&s=post&q=index&api_key=your_key&user_id=your_id&json=1
+```
+
+基本上是这个样子去请求，然后具体的返回格式以及参数啥的可以参考这个链接
+
+https://gelbooru.com/index.php?page=wiki&s=view&id=18780
