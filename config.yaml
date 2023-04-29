@@ -1,11 +1,11 @@
-baseurl: http://www.rmdarck.icu
+baseurl: https://blog.rmdarck.icu
 languageCode: zh-cn
 theme: hugo-theme-stack
 paginate: 5
 title: DarckLH的Blog
 
 # Change it to your Disqus shortname before using
-disqusShortname: darckrm-github-io
+disqusShortname: rmdarck
 
 # GA Tracking ID
 googleAnalytics:
@@ -96,6 +96,8 @@ params:
     widgets:
         homepage:
             - type: search
+              params:
+                  icon: search
             - type: archives
               params:
                   limit: 5
@@ -147,6 +149,7 @@ menu:
           pre: home
           params:
             ### For demonstration purpose, the home link will be open in a new tab
+            icon: home
             newTab: false
 
 related:
